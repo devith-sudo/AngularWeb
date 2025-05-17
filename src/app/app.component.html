@@ -1,18 +1,40 @@
 @if (isLooggedIn){
 <h1>Welcome to my admin</h1>
 }@else {
-  <h1>You are not welcome to view this Panel</h1>
+<h1>You are not welcome to view this Panel</h1>
 }
 <hr>
 @if (user_role == "admin") {
-  <span style="color: red;">You have full permission to access our website</span>
+<span style="color: red;">You have full permission to access our website</span>
 }@else if (user_role == "manager") {
-  <span style="color: red;">You don't have full permission to access our website</span>
+<span style="color: red;">You don't have full permission to access our website</span>
 }@else if (user_role == "guest") {
-  <span style="color: red;">You don't have permission to access our website</span>
+<span style="color: red;">You don't have permission to access our website</span>
 }@else {
-  <span style="color: red;">Invalid User role</span>
+<span style="color: red;">Invalid User role</span>
 }
+
+<br><br>
+<hr><br><br>
+
+@for (student of students; track student.id) {
+{{student.id}} ---
+{{student.name}} ---
+{{student.age}}
+<br><br>
+}
+<div class="flex-container">
+  @for (product of products; track product.id) {
+
+  <div class="card">
+    <img src="{{product.image}}" alt="Denim Jeans" style="width:100%">
+    <h1>{{product.name}}</h1>
+    <p class="price">{{product.price}}</p>
+    <p>{{product.description}}</p>
+    <p><button>Add to Cart</button></p>
+  </div>
+}
+</div>
 <header>
   <app-header-block></app-header-block>
 </header>
