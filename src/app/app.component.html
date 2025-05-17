@@ -1,0 +1,24 @@
+@if (isLooggedIn){
+<h1>Welcome to my admin</h1>
+}@else {
+  <h1>You are not welcome to view this Panel</h1>
+}
+<hr>
+@if (user_role == "admin") {
+  <span style="color: red;">You have full permission to access our website</span>
+}@else if (user_role == "manager") {
+  <span style="color: red;">You don't have full permission to access our website</span>
+}@else if (user_role == "guest") {
+  <span style="color: red;">You don't have permission to access our website</span>
+}@else {
+  <span style="color: red;">Invalid User role</span>
+}
+<header>
+  <app-header-block></app-header-block>
+</header>
+
+<main>
+  <div id="left"><app-left-block></app-left-block></div>
+  <div id="content"><app-content-block></app-content-block></div>
+  <div id="right"><app-right-block></app-right-block></div>
+</main>
